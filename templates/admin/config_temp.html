@@ -1,0 +1,19 @@
+{%extends 'base.html' %} 
+
+{% block title %} admin_uploadingphoto {% endblock %}
+
+{% block content %} 
+{% include 'admin/base.html' %}
+<form action="{{'url_for(admin.config_temp)'}}" method="POST">
+    
+    {{ form.hidden_tag() }}
+    
+    maxtemp : {{form.maxtemp}} <br>
+    mintemp : {{form.mintemp}} <br>
+    name : {{form.name}} <br>
+    slug : {{form.slug}} <br>
+    <input type="submit" value="OK">
+
+</form>
+
+{% endblock %}
