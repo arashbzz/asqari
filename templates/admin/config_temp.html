@@ -4,7 +4,7 @@
 
 {% block content %} 
 {% include 'admin/base.html' %}
-<form action="{{'url_for(admin.config_temp)'}}" method="POST">
+<form action="{{url_for('admin.config_temp')}}" method="POST">
     
     {{ form.hidden_tag() }}
     
@@ -13,7 +13,27 @@
     name : {{form.name}} <br>
     slug : {{form.slug}} <br>
     <input type="submit" value="OK">
-
 </form>
+
+<div>
+    <table>
+        <tr>
+          <th>name</th>
+          <th>slug</th>
+          <th>maxtemp</th>
+          <td>mintemp</td>
+        </tr>
+        {% for temp in temps %} 
+        <tr>
+          <td>{{temp.name}}</td>
+          <td>{{temp.slug}}</td>
+          <td>{{temp.maxtemp}}</td>
+          <td>{{temp.mintemp}}</td>
+        </tr>
+        {% endfor %}
+      </table> 
+
+    
+</div>
 
 {% endblock %}
