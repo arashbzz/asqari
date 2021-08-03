@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} main_page {% endblock %}
+
+{% block content %}
+
+<!-- {{weather_json}} -->
+<div class="card">
+
+{{weather_json["location"]["name"]}}
+<br>
+{{weather_json["current"]["temp_c"]}}
+</div>
+
+<figure>
+<img src="{{url_for('static',filename ='photos/'+ photo.filename)}}"
+    alt="---">
+</figure>
+
+{% endblock %}

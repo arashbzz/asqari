@@ -4,6 +4,7 @@
 
 {% block content %} 
 {% include 'admin/base.html' %}
+
 <form action="{{url_for('admin.upload_photo')}}" method="POST" enctype="multipart/form-data">
     
     {{ form.hidden_tag() }}
@@ -12,5 +13,9 @@
     <input type="submit" value="upload">
 
 </form>
+
+<!-- {% for photo in photoes %}
+<img src="{{url_for('static',filename ='photos/'+ photo.filename)}}" alt="undefiend">
+{% endfor %} -->
 
 {% endblock %}

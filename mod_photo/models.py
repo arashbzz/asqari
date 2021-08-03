@@ -7,7 +7,7 @@ photo_temp = Table('photo_temp', db.metadata,
                           )
 
 
-class photodb (db.Model):
+class PhotoDb (db.Model):
     __tablename__ = 'photo'
     id = Column(Integer(), primary_key=True)
     description = Column(String(128), nullable=True)
@@ -23,5 +23,5 @@ class Temp (db.Model):
     slug = Column(String(32), nullable=False, unique=False)
     maxtemp = Column(Integer(), nullable=False, unique=False)
     mintemp = Column(Integer(), nullable=False, unique=False)
-    photo = db.relationship("photodb",
+    photo = db.relationship("PhotoDb",
                     secondary=photo_temp, back_populates='temp')

@@ -7,7 +7,7 @@ from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 class PhotoUploadingForm (FlaskForm) :
     file = FileField(validators=[FileRequired(), FileAllowed(['jpg', 'png'], 'Images only!')])
-    temp = SelectField( )
+    temp = SelectField()
 
 class TempForm(FlaskForm):
     name = StringField( validators=[DataRequired()])

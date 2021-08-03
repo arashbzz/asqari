@@ -4,7 +4,8 @@
 
 {% block content %}
 {% include 'admin/base.html' %}
-<form action="{{url_for('admin.config_temp')}}" method="POST">
+
+<form action="{{url_for('admin.edit_temp', temp_id= temp.id)}}" method="POST">
 
   {{ form.hidden_tag() }}
 
@@ -12,7 +13,7 @@
   mintemp : {{form.mintemp}} <br>
   name : {{form.name}} <br>
   slug : {{form.slug}} <br>
-  <input type="submit" value="OK">
+  <input type="submit" value="Edit">
 </form>
 
 <div>
