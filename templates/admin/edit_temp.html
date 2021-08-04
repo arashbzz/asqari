@@ -17,12 +17,13 @@
 </form>
 
 <div>
-  <table>
+  <table class="striped">
     <tr>
       <th>name</th>
       <th>slug</th>
       <th>maxtemp</th>
-      <td>mintemp</td>
+      <th>mintemp</th>
+      <th>Action</th>
     </tr>
     {% for temp in temps %}
     <tr>
@@ -37,7 +38,6 @@
     </tr>
     {% endfor %}
   </table>
-
 
 </div>
 

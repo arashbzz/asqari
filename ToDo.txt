@@ -1,1 +1,8 @@
 temp should be editable 
+photo should be searchable 
+photo should be editable 
+the random method for choosing photo
+admin login
+adding flash for admin
+user register in main page
+adding decorator for admin

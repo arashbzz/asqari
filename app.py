@@ -15,7 +15,9 @@ from viwes import index
 
 from mod_photo import photo
 from mod_admin import admin
+from mod_users import users
 
 
 app.register_blueprint(photo)
 app.register_blueprint(admin)
+app. register_blueprint(users)

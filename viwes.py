@@ -30,11 +30,13 @@ def index():
     print(ip, current_temp)
     temps = Temp.query.all()
     for temp in temps:
+        print (temp.mintemp)
         if temp.mintemp < current_temp < temp.maxtemp:
             condition = temp
+            
             return render_template('main.html', weather_json=weather_json, photo=condition.photo[0])
     # print (condition.id, condition.photo[0])
 
     # photo =PhotoDb.query.filter((PhotoDb.temp ==8)).first()
-
-    return render_template('main.html')
+    condition = []
+    return render_template('main.html',weather_json=weather_json, photo=condition.photo[0])
