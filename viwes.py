@@ -3,6 +3,7 @@ from flask.templating import render_template
 from app import app
 import requests
 from mod_photo.models import PhotoDb, Temp
+import random
 
 
 @app.route('/')
@@ -27,16 +28,11 @@ def index():
 
     weather_json = response.json()
     current_temp = weather_json["current"]["temp_c"]
-    print(ip, current_temp)
     temps = Temp.query.all()
     for temp in temps:
-        print (temp.mintemp)
         if temp.mintemp < current_temp < temp.maxtemp:
             condition = temp
-            
-            return render_template('main.html', weather_json=weather_json, photo=condition.photo[0])
-    # print (condition.id, condition.photo[0])
-
-    # photo =PhotoDb.query.filter((PhotoDb.temp ==8)).first()
+            photo = random.choice(condition.photo)
+            return render_template('main.html', weather_json=weather_json, photo=photo)
     condition = []
     return render_template('main.html',weather_json=weather_json, photo=condition.photo[0])
