@@ -1,5 +1,4 @@
-from threading import Condition
-from flask.templating import render_template
+from flask import render_template , abort 
 from app import app
 import requests
 from mod_photo.models import PhotoDb, Temp
@@ -28,11 +27,12 @@ def index():
 
     weather_json = response.json()
     current_temp = weather_json["current"]["temp_c"]
+    print (current_temp)
     temps = Temp.query.all()
     for temp in temps:
         if temp.mintemp < current_temp < temp.maxtemp:
             condition = temp
             photo = random.choice(condition.photo)
             return render_template('main.html', weather_json=weather_json, photo=photo)
-    condition = []
-    return render_template('main.html',weather_json=weather_json, photo=condition.photo[0])
+    abort (404)
+    return render_template('main.html',weather_json=weather_json, photo =photo)
