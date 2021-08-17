@@ -1,0 +1,5 @@
+__pycach__/
+.vscode/
+env/
+.env/
+.ToDolist.txt/

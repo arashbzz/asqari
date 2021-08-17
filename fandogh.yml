@@ -1,0 +1,13 @@
+kind: ExternalService
+name: as
+spec:
+ image: asq:9.5
+ port: 80
+ env:
+  - name: SQLALCHEMY_DATABASE_URI
+    value: mysql+pymysql://root:${DB_PASSWORD}@asqari-db/asqari
+  - name: SECRET_KEY
+    value: ${SECRET_KEY}
+    static_path: /static/
+
+
